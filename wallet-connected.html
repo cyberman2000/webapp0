@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>اتصال موفق</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const user_id = urlParams.get('user_id');
+    const walletAddress = "EQDk8CUJ_4HqOq8koLzdu3xuY3dATB2QcMigCHvAvW4c8oUw"; // در عمل از Tonkeeper دریافت کنید
+
+    // ارسال آدرس به ربات
+    fetch(`https://your-bot-api.com/api/wallet `, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id, wallet_address: walletAddress })
+    }).then(res => res.json())
+      .then(data => {
+        window.Telegram.WebApp.close(); // بستن WebApp
+      });
+  </script>
+</head>
+<body>
+  <h1>اتصال موفق!</h1>
+</body>
+</html>

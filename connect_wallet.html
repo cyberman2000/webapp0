@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>اتصال به کیف پول</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #1c1f26;
+      color: white;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>👛 اتصال به کیف پول TON</h1>
+<p>لطفاً کیف پول خود را متصل کنید:</p>
+
+<button onclick="connectTonkeeper()">🔌 متصل شوید با Tonkeeper</button>
+<button onclick="connectTonhub()">📱 متصل شوید با Tonhub</button>
+
+<script>
+  const userId = new URLSearchParams(window.location.search).get("user_id");
+
+  function connectTonkeeper() {
+    const redirectUrl = `https://tonkeeper.com/ton-connect?returnTo=https ://your-webapp-url.com/wallet-connected?user_id=${userId}`;
+    window.location.href = redirectUrl;
+  }
+
+  function connectTonhub() {
+    const deepLink = `tonhub://transfer/EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMfC`;
+    window.location.href = deepLink;
+    // بعداً توسعه دهید: استفاده از iframe + tonweb.js برای signature
+  }
+</script>
+
+</body>
+</html>
